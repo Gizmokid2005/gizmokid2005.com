@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Windows Activation "DNS name does not exist" error (0x8007232B)
+author:
+  display_name: Michael
+  login: admin
+  email: michael@gizmokid2005.com
+  url: http://www.gizmokid2005.com
+author_login: admin
+author_email: michael@gizmokid2005.com
+author_url: http://www.gizmokid2005.com
+wordpress_id: 485
+wordpress_url: http://gizmokid2005.com/?p=485
+date: '2013-06-14 16:05:01 -0700'
+date_gmt: '2013-06-14 20:05:01 -0700'
+categories:
+- tech
+- geek
+tags:
+- windows
+- activation
+- '0x8007232B'
+- DNS
+- error
+comments: true
+---
+<p>This can be an infuriating error if you ever run into it, largely this post applies to Windows 7 (and equivalents) and above.</p>
+<!--more-->
+<blockquote><p>Error Code:</p>
+<p>0x8007232B</p></blockquote>
+<p><a href="http://gizmokid2005.com/wp-content/uploads/2013/06/Activation.png"><img class="aligncenter size-medium wp-image-486" alt="Activation" src="http://gizmokid2005.com/wp-content/uploads/2013/06/Activation-300x273.png" width="300" height="273" /></a></p>
+<p>Running into the above error when trying to activate an installation of windows, especially if it's a volume license/enterprise edition, can be mind boggling and not make any sense.</p>
+<p>I recently got a new machine at work and installed our Enterprise edition of Windows 8. It turns out we don't have the auto-activation file in our ISO so during the installation the appropriate key wasn't used and activated properly.</p>
+<p>Thankfully there is an easy way to get around this.</p>
+<ol>
+<li>Open Command Prompt (WIN+R, type "cmd", ENTER)</li>
+<li>Type "slui.exe 0x3" and hit enter.</li>
+<li>This should open the Key entry GUI to allow you to enter your key and activate windows.</li>
+</ol>
+<p>Hope this helps anyone who's run into it!</p>

@@ -1,0 +1,146 @@
+---
+layout: post
+status: publish
+published: true
+title: Raspberry Pi Wall Calendar
+author:
+  display_name: Michael
+  login: admin
+  email: michael@gizmokid2005.com
+  url: http://www.gizmokid2005.com
+author_login: admin
+author_email: michael@gizmokid2005.com
+author_url: http://www.gizmokid2005.com
+wordpress_id: 587
+wordpress_url: https://gizmokid2005.com/?p=587
+date: '2017-03-29 16:48:35 -0700'
+date_gmt: '2017-03-29 20:48:35 -0700'
+categories:
+- tech
+- geek
+- life
+tags:
+- raspberry
+- pi
+- wall
+- calendar
+- usb
+- asus
+- google
+- gcal
+comments: true
+---
+<p>I recently decided to take it upon myself to build a wall-mounted simple calendar using a RaspberryPi I had laying around, trying to make it as lightweight as possible and without depending on other services (except for Google Calendar where the calendar actually lives). Here I'm going to put together as much information surrounding this build as I can.</p>
+<!--more-->
+<p>Hardware (including the prices I paid when I ordered):</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/Raspberry-Pi-Model-Desktop-Linux/dp/B00T2U7R7I">Raspberry Pi B2</a></th>
+            <th scope="row">$35</th>
+            <th scope="row">(Had this on-hand, bought years ago when it first came out.</th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row">Wifi Adapter</th>
+            <th scope="row">$5</th>
+            <th scope="row">I used an adapter I had laying around from an original Pi project I wasn't using anymore, pretty much anything should work.</th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/gp/product/B00N9VJV0M/">Acer V226HQL 22" Monitor (Amazon)</a></th>
+            <th scope="row">$89.99</th>
+            <th scope="row"></th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/gp/product/B014I8UL8U/">AmazonBasics HDMI-DVI 3' adapter (Amazon)</a></th>
+            <th scope="row">$5.49</th>
+            <th scope="row"></th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/gp/product/B013US9FFY/">AUKEY USB Wall charger (Amazon)</a></th>
+            <th scope="row">$9.99</th>
+            <th scope="row"></th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/gp/product/B015XPU7RC/">Anker 1' microUSB Cable (Amazon)</a></th>
+            <th scope="row">$14.99</th>
+            <th scope="row">I only used 1 of the 6 cables included in this set, but the cables have always held up well and work great for other things.</th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/gp/product/B001BDX1XI">Generic 8' extension cord (Amazon)</a></th>
+            <th scope="row">$7.24</th>
+            <th scope="row"></th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/Command-Picture-Hanging-3-Strips-17201-ES/dp/B0014CVB8I">3M Command Strips #17201-ES (Amazon)</a></th>
+            <th scope="row">$2-4</th>
+            <th scope="row">I bought these from the local Home Depot as it was easier to determine what exactly I had for options and what I wanted to use.</th>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row"><a href="https://smile.amazon.com/Command-Picture-Frame-Hanging-Strips/dp/B01N1LTKWA/">3M Command Strips #17206-ES (Amazon)</a></th>
+            <th scope="row">$2-4</th>
+            <th scope="row">I bought these from the local Home Depot as it was easier to determine what exactly I had for options and what I wanted to use.</th>
+        </tr>
+        <tr class="table-light">
+            <th scope="row">Total</th>
+            <th scope="row">~$170</th>
+            <th scope="row"></th>
+        </tr>
+    </tbody>
+</table>
+<p>For the software, I simply used the default Raspbian distro. I installed Firefox to use for the browser and installed the <a href="https://addons.mozilla.org/en-US/firefox/addon/mfull/">mFull extension</a> to allow for full-screen setup and set Firefox to autolaunch.</p>
+<p>I wound up using 3M command strips for all of the mounting as I didn't want to try and drill into the walls in the apartment (and subsequently need to patch them when I moved out). It also worked great to mount the plugs to the open space behind the display panel.</p>
+The code that I used for the simple html file I'm using is below, obfuscated for obvious reasons.
+{% highlight html linenos=table %}
+<html><br />
+    <head><br />
+        <!-- This is the line that refreshes the calendar every 300 seconds. --><br />
+        <meta http-equiv="refresh" content="300" ><br />
+        <title>Home Calendar</title><br />
+    </head><br />
+    <body style="background-color:#CCCCCC;"> <!-- I didn't want a completely white background, but not very dark either. --><br />
+        <center><br />
+            <!-- This is a widget from timeanddate.com: https://www.timeanddate.com/clocks/free.html --><br />
+            <iframe src="REDACTED" frameborder="0" width="322" height="74"></iframe><br />
+            <br/><br />
+            <!-- This is one of Weather Underground's free "stickers" that you can get (they're the best I could find but I'm still not completely happy with them): https://www.wunderground.com/stickers/ --><br />
+            <span style='display:block !important; width: 488px; text-align: center; font-family: sans-serif; font-size: 12px;'><a href='REDACTED' title='LOCATION Weather Forecast'><img src='REDACTED' alt='Find more about Weather in LOCATION' /></a></span><br />
+            <br/><br />
+            <!-- Here I just used the embed code from Google Calendar, did two separate embeds, one for the month view and one for the agenda view --><br />
+            <iframe src="REDACTED" style="border-width:0" width="900" height="800" frameborder="0" scrolling="no"></iframe><br />
+            <iframe src="REDACTED" style="border-width:0" width="900" height="800" frameborder="0" scrolling="no"></iframe><br />
+        </center><br />
+    </body><br />
+</html>
+{% endhighlight %}
+<p>I used 2 simple bash scripts in a cron to turn the monitor off at night and on in the morning.</p>
+crontab:
+{% highlight bash %}
+# m h  dom mon dow   command
+0 7 * * * /home/pi/screenon.sh
+0 23 * * * /home/pi/screenoff.sh
+{% endhighlight %}
+screenon.sh:
+{% highlight bash %}
+/usr/bin/tvservice -p
+chvt 1
+chvt 7
+{% endhighlight %}
+screenoff.sh:
+{% highlight bash %}
+/usr/bin/tvservice -p
+/usr/bin/tvservice -o
+{% endhighlight %}
+<p>The obligatory pictures of the finished product.</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/0sHjZ"><p><a href="//imgur.com/0sHjZ">Raspberry Pi Wall calendar</a></p></blockquote>
+<p><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></p>
+<p>So far I've had no issues with this setup. I've also enabled VNC and SSH on the pi for management without needing to disturb the setup.</p>
+<p>Hopefully this information helps someone else!</p>
+<p>-Michael</p>

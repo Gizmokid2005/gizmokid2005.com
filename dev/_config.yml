@@ -1,0 +1,46 @@
+title: Gizmokid2005.com
+email: gizmokid2005@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Organized Chaos!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://gizmokid2005.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: Gizmokid2005
+github_username:  Gizmokid2005
+github:
+  repository_name: Gizmokid2005/gizmokid2005
+  project_tagline: This is my website
+  owner_name: Gizmokid2005
+  owner_url: https://gizmokid2005.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll_inline_highlight
+include: ['_pages']
+sass:
+  style: compressed
+
+permalink: /:year/:month/:title
+excerpt_separator: <!--more-->
+paginate: 10
+
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      permalink: /:basename/
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

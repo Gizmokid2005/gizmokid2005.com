@@ -1,0 +1,6 @@
+- name: Home
+  link: /
+- name: Mustang
+  link: /mustang/
+- name: Contact
+  link: /contact/

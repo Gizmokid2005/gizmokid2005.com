@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: Convert Excel 5 digit (serial) date numbers to Date
+author:
+  display_name: Michael
+  login: admin
+  email: michael@gizmokid2005.com
+  url: http://www.gizmokid2005.com
+author_login: admin
+author_email: michael@gizmokid2005.com
+author_url: http://www.gizmokid2005.com
+wordpress_id: 462
+wordpress_url: http://gizmokid2005.com/?p=462
+date: '2013-05-03 12:34:34 -0700'
+date_gmt: '2013-05-03 16:34:34 -0700'
+categories:
+- tech
+- geek
+tags:
+- Excel
+- Date
+- Serial
+- Convert
+- '5'
+- digit
+comments: true
+---
+<p>I spent a lot of time trying to figure this out and found the easiest way to do it. Below is the detail.</p>
+<p>Excel's serialized dates are the number of days since 1/1/1900. In order to figure out the date again, we have to add the serial number worth of days (subtracting one to account for the inability to not count 1/1/1900 as a day).</p>
+<!--more-->
+<p>[table caption="Quick Date Convert" width="500" colwidth="20|100|50" colalign="left|right|center|left|right"]<br />
+,A,B,C,D<br />
+1,Original Date,Serial,Formula,Converted Date<br />
+2,5/3/2013,41397,=DATE(1900\,1\,1)+B2-1,5/3/2013<br />
+3,5/3/2013,41397,=TEXT(B3\,"mm/dd/yyyy"),5/3/2013<br />
+[/table]</p>
+<p>&nbsp;</p>

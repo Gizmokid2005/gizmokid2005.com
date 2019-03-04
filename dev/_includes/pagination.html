@@ -1,0 +1,25 @@
+<ul class="pagination justify-content-center">
+    {% if paginator.previous_page %}
+    <li class="page-item"><a href="{{ paginator.previous_page_path }}" class="page-link">
+        Previous
+    </a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
+    {% endif %}
+    {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page and page <> 1 %}
+    <li class="page-item active"><a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-link">{{ page }}</a></li>
+    {% elsif page == paginator.page and page == 1 %}
+    <li class="page-item active"><a href="/" class="page-link">{{ page }}</a></li>
+    {% elsif page == 1 %}
+    <li class="page-item"><a href="/" class="page-link">{{ page }}</a></li>
+    {% else %}
+    <li class="page-item"><a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-link">{{ page }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+    <li class="page-item"><a href="{{ paginator.next_page_path }}" class="page-link">Next</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a></li>
+    {% endif %}
+</ul>
