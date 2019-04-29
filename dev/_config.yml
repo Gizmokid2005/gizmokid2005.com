@@ -26,13 +26,14 @@ strict_front_matter: true
 
 permalink: /:year/:month/:title
 excerpt_separator: <!--more-->
-paginate: 10
+paginate: 15
 
 defaults:
   - scope:
       path: "_pages"
     values:
       permalink: /:basename/
+      layout: "default"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
