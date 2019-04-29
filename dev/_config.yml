@@ -22,6 +22,7 @@ plugins:
 include: ['_pages']
 sass:
   style: compressed
+strict_front_matter: true
 
 permalink: /:year/:month/:title
 excerpt_separator: <!--more-->
