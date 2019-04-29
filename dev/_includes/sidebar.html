@@ -1,37 +1,42 @@
-<div class="containter">
-    <div class="card border-secondary mb-3">
-        <div class="card-header">Latest Blog Posts</div>
-        <div class="card-body>">
-            <div class="card-text">
-                <ul class="list-group list-group-flush">
-                    {% for post in site.posts limit:5 %}
-                    <li class="small list-group-item"><a href="{{ post.url}}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Latest Blog Posts</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for post in site.posts limit:5 %}
+        <tr class="table-light">
+            <th scope="row"><a href="{{ post.url}}">{{ post.title }}</a></th>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-    <div class="card border-secondary mb-3">
-        <div class="card-header">Archive</div>
-        <div class="card-body">
-            <div class="card-text">
-                {% for post in site.posts %}
-                    {% assign currentDate = post.date | date: "%Y" %}
-                    {% if currentDate != myDate %}
-                    {% unless forloop.first %}</ul>{% endunless %}
-                    {% if forloop.first %}
-                        <div class="card-title text-muted">{{ currentDate }}</div>
-                    {% else %}
-                        <div class="card-title text-muted mt-3 mb-1">{{ currentDate }}</div>
-                    {% endif %}
-                    <ul class="list-group list-group">
-                        {% assign myDate = currentDate %}
-                        {% endif %}
-                        <li class="small list-group-item"><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d" }}</span> - {{ post.title }}</a></li>
-                        {% if forloop.last %}</ul>{% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Archive</th>
+        </tr>
+    </thead>
+    {% for post in site.posts %}
+        {% assign currentDate = post.date | date: "%Y" %}
+        {% if currentDate != myDate %}
+            {% unless forloop.first %}</tbody>{% endunless %}
+            {% if forloop.first %}
+            <tbody>
+                <tr class="table-secondary">
+                    <th scope="row">{{ currentDate }}</th>
+                </tr>
+            {% else %}
+            <tr class="table-secondary">
+                <th scope="row">{{ currentDate }}</th>
+            </tr>
+            {% endif %}
+            {% assign myDate = currentDate %}
+        {% endif %}
+        <tr class="table-light">
+            <th scope="row"><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d" }}</span> - {{ post.title }}</a></th>
+            {% if forloop.last %}</tr>{% endif %}
+    {% endfor %}
+</table>
