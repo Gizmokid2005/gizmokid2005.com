@@ -1,0 +1,1 @@
+Powered by [Jekyll](https://jekyllrb.com/). Built using [Bootstrap](https://getbootstrap.com/) themed by [Bootswatch's Darkly theme](https://bootswatch.com/darkly/) and modified by yours truly.
