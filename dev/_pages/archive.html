@@ -1,0 +1,31 @@
+---
+layout: default
+title: Archive
+---
+<table class="table">
+    <thead>
+    <tr class="table-dark">
+        <th scope="col">Archive</th>
+    </tr>
+    </thead>
+    {% for post in site.posts %}
+    {% assign currentDate = post.date | date: "%Y" %}
+    {% if currentDate != myDate %}
+    {% unless forloop.first %}</tbody>{% endunless %}
+    {% if forloop.first %}
+    <tbody>
+    <tr class="table-secondary">
+        <th scope="row">{{ currentDate }}</th>
+    </tr>
+    {% else %}
+    <tr class="table-secondary">
+        <th scope="row">{{ currentDate }}</th>
+    </tr>
+    {% endif %}
+    {% assign myDate = currentDate %}
+    {% endif %}
+    <tr class="table-light">
+        <th scope="row"><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d" }}</span> - {{ post.title }}</a></th>
+        {% if forloop.last %}</tr>{% endif %}
+    {% endfor %}
+</table>

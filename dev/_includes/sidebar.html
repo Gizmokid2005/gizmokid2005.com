@@ -1,13 +1,10 @@
-<nav class="navbar bg-primary navbar-dark dropdown">
-    <a class="navbar-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Latest Blog Posts</a>
-    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 41px, 0px);">
-        {% for post in site.posts limit:5 %}
-        <a class="dropdown-item" href="{{ post.url }}">{{ post.title }}</a>
-        {% endfor %}
-    </div>
-</nav>
-
-<hr>
+<table class="table">
+    <thead>
+    <tr class="table-dark">
+        <th scope="col">Latest Blog Posts</th>
+    </tr>
+    </thead>
+</table>
 
 <nav class="navbar navbar-dark bg-primary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#latestNavbar" aria-controls="latestNavbar" aria-expanded="false" aria-label="Toggle latest nav">
@@ -21,51 +18,3 @@
         </ul>
     </div>
 </nav>
-
-<hr>
-
-<table class="table">
-    <thead>
-    <tr class="table-dark">
-        <th scope="col">Latest Blog Posts</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for post in site.posts limit:5 %}
-    <tr class="table-light">
-        <th scope="row"><a href="{{ post.url}}">{{ post.title }}</a></th>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<hr>
-
-
-<table class="table">
-    <thead>
-        <tr class="table-dark">
-            <th scope="col">Archive</th>
-        </tr>
-    </thead>
-    {% for post in site.posts %}
-        {% assign currentDate = post.date | date: "%Y" %}
-        {% if currentDate != myDate %}
-            {% unless forloop.first %}</tbody>{% endunless %}
-            {% if forloop.first %}
-            <tbody>
-                <tr class="table-secondary">
-                    <th scope="row">{{ currentDate }}</th>
-                </tr>
-            {% else %}
-            <tr class="table-secondary">
-                <th scope="row">{{ currentDate }}</th>
-            </tr>
-            {% endif %}
-            {% assign myDate = currentDate %}
-        {% endif %}
-        <tr class="table-light">
-            <th scope="row"><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d" }}</span> - {{ post.title }}</a></th>
-            {% if forloop.last %}</tr>{% endif %}
-    {% endfor %}
-</table>
