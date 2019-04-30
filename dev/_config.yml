@@ -27,6 +27,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll_inline_highlight
 include: ['_pages']
+exclude: ['updatesite.sh']
 sass:
   style: compressed
 strict_front_matter: true
