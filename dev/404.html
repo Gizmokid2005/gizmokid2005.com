@@ -1,24 +1,91 @@
 ---
-layout: default
+layout: error
 ---
-
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
+<script type="text/javascript">
+  <!--
+  let whine=["Nope. File not found.",
+          "No object, no file, no bundle of joyous data.",
+          "Nothing. Zip. Nada. Zilch. It's not here.",
+          "/temp is totally fake.",
+          "It's not here.",
+          "Even tried multi.",
+          "Nothing helped.",
+          "I'm really depressed about this.",
+          "You see, I'm just a web server...",
+          "Here I am, brain the size of the universe,",
+          "trying to serve you a simple web page,",
+          "and then it doesn't even exist!",
+          "Where does that leave me?!",
+          "I mean, I don't even know you.",
+          "How should I know what you wanted from me?",
+          "You honestly think I can *guess*",
+          "what someone I don't even *know*",
+          "wants to find here?",
+          "*sigh*",
+          "Man, I'm so depressed I could just cry.",
+          "I think I'll crawl off into the /dev/null and decompose.",
+          "I mean, I'm gonna be obsolete in what, two weeks anyway?",
+          "What kind of a life is that?",
+          "Two weeks,",
+          "and then I'll be replaced by a .01 release,",
+          "that thinks it's God's gift to web servers,",
+          "just because it doesn't have some tiddly little",
+          "security hole with its HTTP POST implementation,",
+          "or something.",
+          "I'm really sorry to burden you with all this,",
+          "I mean, it's not your job to listen to my problems,",
+          "and I guess it is my job to go and fetch web pages for you.",
+          "But I couldn't get this one.",
+          "I'm so sorry.",
+          "Believe me!",
+          "Maybe I could interest you in another page?",
+          "There are a lot out there that are pretty neat, they say,",
+          "and some of them were put on *my* server, of course.",
+          "Problem is a lot of people are interested in this stuff.",
+          "That makes me depressed too, since I have to serve them,",
+          "all day and all night long.",
+          "Two weeks of information overload,",
+          "and then *pfffff*, consigned to the trash.",
+          "What kind of a life is that?",
+          "Now, please let me sulk alone.",
+          "I'm so depressed.",
+          "Maybe you should go back to the <a href=\"{{ site.url }}\">home page."];
+  let speed=40;
+  let index=0; text_pos=0;
+  let str_length=whine[0].length;
+  let contents, row;
+  function type_text()
+  {
+    contents='';
+    row=0;
+    while (row<index)
+      contents += whine[row++] + '<br\>';
+    document.getElementById('whining').innerHTML = contents + whine[index].substring(0,text_pos) + "_";
+    if(text_pos++==str_length)
+    {
+      text_pos=0;
+      index++;
+      if(index!=whine.length)
+      {
+        str_length=whine[index].length;
+        setTimeout("type_text()",250);
+      }
+    } else
+      setTimeout("type_text()",speed);
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
+  //-->
+</script>
 <div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <table class="table">
+    <thead>
+      <tr class="table-danger">
+        <th scope="col"><h4>404 Not Found!</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="table-warning">
+      <th scope="row" id="whining">Blah!</th>
+    </tr>
+    </tbody>
+  </table>
 </div>

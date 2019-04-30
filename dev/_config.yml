@@ -12,6 +12,13 @@ github:
   owner_name: Gizmokid2005
   owner_url: https://gizmokid2005.com
 
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      permalink: /:basename/
+      layout: "default"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
@@ -23,17 +30,17 @@ include: ['_pages']
 sass:
   style: compressed
 strict_front_matter: true
+keep_files:
+  - icon
+  - stats
+  - awstatsicons
+  - awstats-icon
+  - temp
+  - video
 
 permalink: /:year/:month/:title
 excerpt_separator: <!--more-->
 paginate: 15
-
-defaults:
-  - scope:
-      path: "_pages"
-    values:
-      permalink: /:basename/
-      layout: "default"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
