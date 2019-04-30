@@ -38,6 +38,7 @@ keep_files:
   - awstats-icon
   - temp
   - video
+  - keybase.txt
 
 permalink: /:year/:month/:title
 excerpt_separator: <!--more-->
