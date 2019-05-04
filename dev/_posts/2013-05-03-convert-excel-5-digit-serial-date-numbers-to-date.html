@@ -30,10 +30,37 @@ comments: true
 <p>I spent a lot of time trying to figure this out and found the easiest way to do it. Below is the detail.</p>
 <p>Excel's serialized dates are the number of days since 1/1/1900. In order to figure out the date again, we have to add the serial number worth of days (subtracting one to account for the inability to not count 1/1/1900 as a day).</p>
 <!--more-->
-<p>[table caption="Quick Date Convert" width="500" colwidth="20|100|50" colalign="left|right|center|left|right"]<br />
-,A,B,C,D<br />
-1,Original Date,Serial,Formula,Converted Date<br />
-2,5/3/2013,41397,=DATE(1900\,1\,1)+B2-1,5/3/2013<br />
-3,5/3/2013,41397,=TEXT(B3\,"mm/dd/yyyy"),5/3/2013<br />
-[/table]</p>
-<p>&nbsp;</p>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col"></th>
+      <th scope="col">A</th>
+      <th scope="col">B</th>
+      <th scope="col">C</th>
+      <th scope="col">D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" class="table-primary">1</th>
+      <th scope="row" class="table-secondary">Original Date</th>
+      <th scope="row" class="table-secondary">Serial</th>
+      <th scope="row" class="table-secondary">Formula</th>
+      <th scope="row" class="table-secondary">Converted Date</th>
+    </tr>
+    <tr>
+      <th scope="row" class="table-primary">2</th>
+      <th scope="row" class="table-secondary">5/3/2013</th>
+      <th scope="row" class="table-secondary">41397</th>
+      <th scope="row" class="table-secondary">=DATE(1900,1,1)+B2-1</th>
+      <th scope="row" class="table-secondary">5/3/2013</th>
+    </tr>
+    <tr>
+      <th scope="row" class="table-primary">3</th>
+      <th scope="row" class="table-secondary">5/3/2013</th>
+      <th scope="row" class="table-secondary">41397</th>
+      <th scope="row" class="table-secondary">=TEXT(B3,"mm/dd/yyyy")</th>
+      <th scope="row" class="table-secondary">5/3/2013</th>
+    </tr>
+  </tbody>
+</table>
