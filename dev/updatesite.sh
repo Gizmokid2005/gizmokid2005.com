@@ -1,0 +1,1 @@
+bundle exec jekyll build -d /home/gizmokid2005/public_html/
