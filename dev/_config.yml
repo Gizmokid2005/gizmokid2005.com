@@ -26,8 +26,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll_inline_highlight
+  - jekyll-minifier
 include: ['_pages','.htaccess']
-exclude: ['updatesite.sh']
+#exclude: ['updatesite.sh']
+exclude:
+  - updatesite.sh
+  - Gemfile
+  - Gemfile.lock
 sass:
   style: compressed
 strict_front_matter: true
@@ -43,6 +48,19 @@ keep_files:
 permalink: /:year/:month/:title
 excerpt_separator: <!--more-->
 paginate: 15
+jekyll-minifier:
+#  compress_javascript: false
+#  compress_css: false
+#  exclude: ['jquery-3.3.1.slim.min.js','bootstrap.bundle.js','bootstrap.bundle.js.map','bootstrap.bundle.min.js','bootstrap.bundle.min.js.map','respond.js']
+  exclude:
+  - jquery-3.3.1.slim.min.js
+  - bootstrap.bundle.js
+  - bootstrap.bundle.js.map
+  - bootstrap.bundle.min.js
+  - bootstrap.bundle.min.js.map
+  - respond.js
+  uglifier_args:
+    harmony: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
