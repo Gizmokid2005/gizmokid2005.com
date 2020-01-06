@@ -27,6 +27,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll_inline_highlight
   - jekyll-minifier
+  - jekyll-redirect-from
 include: ['_pages','.htaccess']
 #exclude: ['updatesite.sh']
 exclude:
