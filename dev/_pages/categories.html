@@ -1,0 +1,51 @@
+---
+published: true
+title: Categories
+permalink: /categories/
+---
+<h2><strong>Categories</strong></h2>
+<hr class="light">
+<p class="row text-muted ml-0">
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    <a href="{{site.baseurl}}/categories/#{{ category_name | slugize }}">{{ category_name | slugize }}</a>
+    {% unless forloop.last %},&nbsp;{% endunless %}
+    {% endfor %}
+</p>
+<hr class="light">
+<table class="table">
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+        {% capture category_name %}{{ category | first }}{% endcapture %}
+        <thead id="{{ category_name | slugize }}">
+        <tr class="table-dark">
+            <th scope="col">{{ category_name | slugize }}</th>
+        </tr>
+        </thead>
+        {% for post in site.categories[category_name] %}
+        {% assign currentDate = post.date | date: "%Y" %}
+        {% if currentDate != myDate %}
+        {% unless forloop.first %}</tbody>{% endunless %}
+        {% if forloop.first %}
+        <tbody>
+        <tr class="table-secondary">
+            <th scope="row">{{ currentDate }}</th>
+        </tr>
+        {% else %}
+        <tr class="table-secondary">
+            <th scope="row">{{ currentDate }}</th>
+        </tr>
+        {% endif %}
+        {% assign myDate = currentDate %}
+        {% endif %}
+        <tr class="table-light">
+            <th scope="row"><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d" }}</span> - {{ post.title }}</a></th>
+            {% if forloop.last %}</tr>{% endif %}
+
+        {% endfor %}
+    {% endfor %}
+</table>
+
+
+

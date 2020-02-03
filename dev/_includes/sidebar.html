@@ -18,3 +18,20 @@
         </ul>
     </div>
 </nav>
+<br/>
+<table class="table">
+    <thead>
+    <tr class="table-dark">
+        <th scope="col">Categories</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    <tr class="table-light container small">
+        <th scope="col"><a href="{{site.baseurl}}/categories/#{{ category_name | slugize }}">{{ category_name | slugize }}</a></th>
+    </tr>
+    {% if forloop.last %}</tbody>{% endif %}
+    {% endfor %}
+</table>

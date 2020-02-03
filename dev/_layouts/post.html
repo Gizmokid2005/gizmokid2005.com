@@ -4,12 +4,15 @@ layout: default
 <div class="container">
     <h1 class="row"><a href="{{ page.url }}">{{ page.title }}</a></h1>
     <p class="row text-muted ml-0">{{ page.date | date: "%B %-d, %Y @ %H:%M" }} - {{ page.author.display_name }}</p>
+
     <div class="container small">
         Categories:
         {% for category in page.categories %}
-        {{ category }} {{ category.link }}
+        <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+        {% unless forloop.last %},&nbsp;{% endunless %}
         {% endfor %}
     </div>
+
     <hr class="light">
     <div class="container">
         {{ content }}
