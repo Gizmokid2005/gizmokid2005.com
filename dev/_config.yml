@@ -1,3 +1,7 @@
+#Version Number
+version: 20200812
+
+#Site Info
 title: Gizmokid2005.com
 email: gizmokid2005@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
