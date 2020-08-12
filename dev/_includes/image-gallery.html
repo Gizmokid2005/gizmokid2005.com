@@ -1,18 +1,20 @@
 <div class="image-gallery">
     {% for file in site.static_files %}
         {% if file.path contains include.folder %}
-            {% if file.extname == '.jpg' or
-            file.extname == '.jpeg' or
-            file.extname == '.JPG' or
-            file.extname == '.JPEG' %}
-                {% assign filenameparts = file.path | split: "/" %}
-                {% assign filename = filenameparts | last | replace: file.extname,"" %}
+            {% unless file.path contains "thumbs" %}
+                {% if file.extname == '.jpg' or
+                file.extname == '.jpeg' or
+                file.extname == '.JPG' or
+                file.extname == '.JPEG' %}
+                    {% assign filenameparts = file.path | split: "/" %}
+                    {% assign filename = filenameparts | last | replace: file.extname,"" %}
 
-                <a href="{{ file.path }}" title="{{ filename }}">
-                    <img src="{{ site.url }}{{ include.folder }}/thumbs/{{ file.name }}" alt="{{ filename }}" />
+                    <a href="{{ file.path }}" title="{{ filename }}">
+                        <img src="{{ site.url }}{{ include.folder }}/thumbs/{{ file.name }}" alt="{{ filename }}" />
 
-                </a>
-            {% endif %}
+                    </a>
+                {% endif %}
+            {% endunless %}
         {% endif %}
     {% endfor %}
 </div>
