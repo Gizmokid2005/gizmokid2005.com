@@ -50,7 +50,7 @@ permalink: /404.html
           "What kind of a life is that?",
           "Now, please let me sulk alone.",
           "I'm so depressed.",
-          "Maybe you should go back to the <a href=\"{{ site.url }}\">home page."];
+          "Maybe you should go back to the <a href=\"{{ site.url }}\">home page</a>."];
   let speed=40;
   let index=0; text_pos=0;
   let str_length=whine[0].length;
@@ -61,7 +61,7 @@ permalink: /404.html
     row=0;
     while (row<index)
       contents += whine[row++] + '<br\>';
-    document.getElementById('whining').innerHTML = contents + whine[index].substring(0,text_pos) + "_";
+    document.getElementById('whining').innerHTML = contents + whine[index].substring(0,text_pos);
     if(text_pos++==str_length)
     {
       text_pos=0;
