@@ -1,1 +1,1 @@
-JEKYLL_ENV=production bundle exec jekyll build -d /home/gizmokid2005/public_html/
+JEKYLL_ENV=production bundle exec jekyll build -d /home/dev/public_html/
