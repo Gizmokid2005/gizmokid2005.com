@@ -8,9 +8,9 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem 'jekyll', '~> 4.0'
+gem 'jekyll'
 gem "cssminify2", :git => 'https://github.com/bbbenji/cssminify'
-gem "webrick", "~> 1.7"
+gem "webrick"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
