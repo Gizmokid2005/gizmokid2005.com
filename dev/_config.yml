@@ -56,9 +56,9 @@ paginate: 15
 jekyll-minifier:
   compress_javascript: false
 #  compress_css: false
-#  exclude: ['jquery-3.7.0.slim.min.js','bootstrap.bundle.js','bootstrap.bundle.js.map','bootstrap.bundle.min.js','bootstrap.bundle.min.js.map','respond.js']
+#  exclude: ['jquery-3.7.1.min.js','bootstrap.bundle.js','bootstrap.bundle.js.map','bootstrap.bundle.min.js','bootstrap.bundle.min.js.map','respond.js']
   exclude:
-  - jquery-3.7.0.slim.min.js
+  - jquery-3.7.1.min.js
   - bootstrap.bundle.js
   - bootstrap.bundle.js.map
   - bootstrap.bundle.min.js
