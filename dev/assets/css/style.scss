@@ -1,8 +1,10 @@
 ---
 ---
 
-@import "bootstrap.scss";
-@import "monokai.scss";
+//@import "bootstrap.scss";
+//@import "monokai.scss";
+@use "bootstrap.scss";
+@use "monokai.scss";
 
 hr.split {
   height: 30px;
