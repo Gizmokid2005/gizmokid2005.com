@@ -112,6 +112,7 @@ The code that I used for the simple html file I'm using is below, obfuscated for
 </html>
 {% endhighlight %}
 <p>I used 2 simple bash scripts in a cron to turn the monitor off at night and on in the morning.</p>
+<p><strong>NOTE: This has been updated as of January 2025 to account for the new commands on raspbian.</strong></p>
 crontab:
 {% highlight bash %}
 # m h  dom mon dow   command
@@ -120,14 +121,11 @@ crontab:
 {% endhighlight %}
 screenon.sh:
 {% highlight bash %}
-/usr/bin/tvservice -p
-chvt 1
-chvt 7
+vcgencmd display_power 1
 {% endhighlight %}
 screenoff.sh:
 {% highlight bash %}
-/usr/bin/tvservice -p
-/usr/bin/tvservice -o
+vcgencmd display_power 0
 {% endhighlight %}
 <p>The obligatory pictures of the finished product.</p>
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/0sHjZ"><p><a href="//imgur.com/0sHjZ">Raspberry Pi Wall calendar</a></p></blockquote>
